@@ -3,27 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Tayal Hotel</title>
+    <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
-    <h1>Welcome to My Page</h1>
-    <img src="assets/image1.png" alt="image1">
-    <img src="assets/image2.png" alt="image2">
-    <!-- Other content -->
-    
-    <!-- Original line to fix -->
-    <img src="assets/images/image3.png" alt="image3">
-    <img src="assets/images/image4.png" alt="image4">
-    <!-- More Content -->
-    
-    <img src="assets/images/image5.png" alt="image5">
-    <img src="assets/images/image6.png" alt="image6">
-    <img src="assets/images/image7.png" alt="image7">
-    <img src="assets/images/image8.png" alt="image8">
-    <img src="assets/images/image9.png" alt="image9">
-    
-    <footer>
-        <img src="assets/images/footer.png" alt="footer">
-    </footer>
+    <header>
+        <h1>Welcome to Tayal Hotel</h1>
+        <img src="assets/media__1776483344885.jpg" alt="Tayal Hotel">
+    </header>
+    <main>
+        <section id="rooms">
+            <h2>Our Rooms</h2>
+            <img src="assets/luxury_room_1776482554207.png" alt="Luxury Room">
+        </section>
+        <section id="dining">
+            <h2>Fine Dining</h2>
+            <img src="assets/fine_dining_1776482569971.png" alt="Fine Dining">
+        </section>
+        <section id="events">
+            <h2>Party Hall</h2>
+            <img src="assets/party_hall_1776482587450.png" alt="Party Hall">
+        </section>
+        <section id="joke-generator">
+            <h2>Joke Generator</h2>
+            <button id="jokeButton">Get a Joke!</button>
+            <p id="joke"></p>
+        </section>
+    </main>
+    <script>
+        document.getElementById('jokeButton').addEventListener('click', async function() {
+            const response = await fetch('https://icanhazdadjoke.com/', {
+                headers: {
+                    'Accept': 'application/json'
+                }
+            });
+            const data = await response.json();
+            document.getElementById('joke').innerText = data.joke;
+        });
+    </script>
 </body>
 </html>
